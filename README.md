@@ -24,13 +24,14 @@ Notes pertaining to univariate/multivariate statistical analysis
   - Mode
 * Dispersion of distribution: The spread of values in a variable. Simplest way to check this is to subtract the largest value from the smallest, or to check the *range*.
   - Since range gets affected from the presence of extreme scores, often the top and bottom 25% of values are removed and only the range of the middle 50% is calculated - the *interquartile range*. Although interquartile range is not affected by extreme values, it has the disadvantage of removing a lot of data.
+ok
   
-        data(faithful)
-        freqDist <- table(faithful$eruptions)
-        hist(freqDist)
-        myMean <- mean(faithful$eruptions)
-        myMedian <- median(faithful$eruptions)
-        myMode <- faithful$eruptions[order(faithful$eruptions, decreasing = TRUE)][1]
-        deviationScore <- faithful$eruptions - mean(faithful$eruptions)
-        Sum of squared deviations OR Sum of squared errors OR Sum of squares
-        SSD <- sum((faithful$eruptions - mean(faithful$eruptions))^2)
+          data(faithful)
+          freqDist <- table(faithful$eruptions)
+          hist(freqDist)
+          myMean <- mean(faithful$eruptions)
+          myMedian <- median(faithful$eruptions)
+          myMode <- faithful$eruptions[order(faithful$eruptions, decreasing = TRUE)][1]
+          deviationScore <- faithful$eruptions - mean(faithful$eruptions)
+          Sum of squared deviations OR Sum of squared errors OR Sum of squares
+          SSD <- sum((faithful$eruptions - mean(faithful$eruptions))^2)
