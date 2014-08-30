@@ -37,3 +37,9 @@ ok
                 SSD <- sum((faithful$eruptions - mean(faithful$eruptions))^2)
                 myVariance <- SSD / length(faithful$eruptions) - 1
                 myStdDev <- sqrt(myVariance)
+
+* Using Frequency distribution to go beyond data
+  - Probability distributions can be used to calculate the probability of getting particular scores, based on the frequency with which a particular score occurs in the distribution.
+  - A problem might be that we do not have data with 0 mean and 1 standard deviation. However, any data can be converted to have 0 mean and 1 standard deviation - using the centering and scaling techniques.
+  - Subtract a value from the mean to center it, and divide it by the standard deviation to scale it. These are known as Z-scores
+  - Through this technique, we can see whether data is likely or unlikely to occur in a particular distribution.
