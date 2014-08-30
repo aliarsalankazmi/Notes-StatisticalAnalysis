@@ -28,5 +28,5 @@ Notes pertaining to univariate/multivariate statistical analysis
   - Median
   - Mode
 
-    mySample <- c(2,34,6,3,4,6,87,19)
+mySample <- c(2,34,6,3,4,6,87,19)
     
