@@ -42,4 +42,17 @@ ok
   - Probability distributions can be used to calculate the probability of getting particular scores, based on the frequency with which a particular score occurs in the distribution.
   - A problem might be that we do not have data with 0 mean and 1 standard deviation. However, any data can be converted to have 0 mean and 1 standard deviation - using the centering and scaling techniques.
   - Subtract a value from the mean to center it, and divide it by the standard deviation to scale it. These are known as Z-scores
+  - Certain Z-scores are more important, as their values cut off certain percentage distributions. For example, Z-score = 1.96 cuts off the top 2.5% of the distribution, and Z-score = -1.96 cuts off the bottom 2.5% of the distribution. Combined, this Z-score cuts off 5% of the distribution; 95% of the Z-scores lie between -1.96 to +1.96. Other important scores are 2.58 and 3.29, which cut off 1% and 0.1% of the distribution.
   - Through this technique, we can see whether data is likely or unlikely to occur in a particular distribution.
+
+## Simple Statistical Modelling and Assessment
+
+* One simple statistical model is the mean - it is a hypothetical value that may not necessarily be observed in the data.
+* For any statistical model, there are ways to assess the fit:
+  - We may calculate how much our predicted data (the mean) differs from the actual data - **deviance**. Overall deviance may be found by summing up all deviances. Since a simple sum of the deviances would produce 0 (*due to the fact that some deviances would be the result of overestimation while others that of underestimation*), we shall square the deviances and then add up. This is called the **sum of squared errors**.
+* However, the **sum of squared errors** is dependent on amount of data available - the more data points, the higher the Sum of squared errors' value. To overcome this problem, the Sum of squared errors is divided by the number of data points, to calculate the **average error**. If, however, we intend to find *not* the average error, but the error present in the population as a whole, we divide the Sum of squared errors with (number of data points - 1) - this is called **variance**.
+* In addition to the variance, the *standard deviation* may be found, which is the application of a square root to the variance. 
+* In such a manner, the sum of squared deviations, variance, and standard deviations can all be used to measure the goodness of fit of a model, in addition to being used for measuring the dispersion of data.
+
+* Another way of modelling is *not* to check if our model is a good fit to the sample, but if it is a good fit to the **population** from which the sample was obtained.
+* 
