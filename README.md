@@ -2,7 +2,7 @@ Notes pertaining to univariate/multivariate statistical analysis
 ================================================================
 
 
-# Data Types
+## Data Types
 
 1. Non-Metric
   - Ordinal: Categorical variables that denote some kind of order.
@@ -13,9 +13,16 @@ Notes pertaining to univariate/multivariate statistical analysis
 3. Summated Scales: In such a scale, several variables are joined in a composite measure.
 
 
-# Basic Statistics
+## Basic Statistics
 
 * Statistical Population: A **complete** set of items that share at least a single property.
-* Sample: A set of data collected from the Statistical Population.
 
+* Sample: A **set** of data collected from the Statistical Population.
 
+* Frequency Distribution: A set of data that denotes how often (that is, the *distribution*) each value occurs in a sample. These distributions may take up different forms: Normal distribution, T-distribution, Binomial distribution, etc.
+
+* Central Tendency: Where the centre of a frequency distribution lies. There are several ways of finding the central tendency:
+  - 
+
+    mySample <- c(2,34,6,3,4,6,87,19)
+    
