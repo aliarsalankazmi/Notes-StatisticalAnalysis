@@ -54,7 +54,7 @@ Notes pertaining to univariate/multivariate statistical analysis
 * In addition to the variance, the *standard deviation* may be found, which is the application of a square root to the variance. 
 * In such a manner, the sum of squared deviations, variance, and standard deviations can all be used to measure the goodness of fit of a model, in addition to being used for measuring the dispersion of data.
 
-* Another way of modelling is *not* to check if our model is a good fit to the sample, but if it is a good fit to the **population** from which the sample was obtained.
+* Another way of modelling is *not only* to check if our model is a good fit to the sample, but if it is a good fit to the **population** from which the sample was obtained.
 * The above approach takes account of the fact that whenever any calculation is performed on a sample of data, this sample is usually only a subset of the entire population. Other 'subset's of the population may slightly differ in their values - this is known as **sampling variation**. If means are calculated for all sample data generated from a population, the standard deviation between these sample means would provide us with a measure of variability between these means of different samples. This is known as the **Standard error of the mean**.
   - We also cannot collect hunderds of samples and then calculate the standard error of the mean. To our benefit, it was demonstrated by statisticians that as samples get large, their sampling distribution has a normal distribution, with a mean equal to the population mean. This is known as the **Central Limit Theorem**, and is useful in that given a large sample size, the standard error can be approximated by calculating the standard deviation of the sampling distribution.
     - **Three principles of CLT**:
@@ -84,9 +84,9 @@ Notes pertaining to univariate/multivariate statistical analysis
 * Weaknesses and their remedies for Null Hypothesis Significance Testing (NHST)
   - Weakness: Biased by sample size
     - In regression:
-      - 		p-value is based on t-value
-		  - t=B/SE (B is regression coefficient, SE is Standard Error)
-		  - SE=SQRT(SS.Residual/(N-2))
+      - p-value is based on t-value
+      - t=B/SE (B is regression coefficient, SE is Standard Error)
+      - SE=SQRT(SS.Residual/(N-2))
   - Remedy: Supplement all NHSTs with estimates of effect size
     - In regression:
       - report standardised regression coefficients and the model R-squared.
@@ -105,4 +105,8 @@ Notes pertaining to univariate/multivariate statistical analysis
 * Measures of effect size
   - Many measures: Cohen's d, Pearson's correlation coefficient, odd's ratio, etc.
   - Effect sizes provide a measure of the importance of an effect. These are calculated for samples, and the same could be used to estimate the effect size of the entire population.
-  - 
+  - Effect sizes depend on 3 other statistical properties:
+    - sample size,
+    - the probability level at which we will accept an effect as being statistically significant (a-level)
+    - statistical power (the ability of a test to detect an effect of size
+    - 
