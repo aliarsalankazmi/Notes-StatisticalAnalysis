@@ -24,7 +24,7 @@ Notes pertaining to univariate/multivariate statistical analysis
   - Mode
 * Dispersion of distribution: The spread of values in a variable. Simplest way to check this is to subtract the largest value from the smallest, or to check the *range*.
   - Since range gets affected from the presence of extreme scores, often the top and bottom 25% of values are removed and only the range of the middle 50% is calculated - the *interquartile range*. Although interquartile range is not affected by extreme values, it has the disadvantage of removing a lot of data.
-ok
+  - While the above acknowledge only some part of data, the **variance** and **standard deviation** may be used alternatively, for checking the dispersion of data.
   
                 data(faithful)
                 freqDist <- table(faithful$eruptions)
@@ -55,4 +55,54 @@ ok
 * In such a manner, the sum of squared deviations, variance, and standard deviations can all be used to measure the goodness of fit of a model, in addition to being used for measuring the dispersion of data.
 
 * Another way of modelling is *not* to check if our model is a good fit to the sample, but if it is a good fit to the **population** from which the sample was obtained.
-* 
+* The above approach takes account of the fact that whenever any calculation is performed on a sample of data, this sample is usually only a subset of the entire population. Other 'subset's of the population may slightly differ in their values - this is known as **sampling variation**. If means are calculated for all sample data generated from a population, the standard deviation between these sample means would provide us with a measure of variability between these means of different samples. This is known as the **Standard error of the mean**.
+  - We also cannot collect hunderds of samples and then calculate the standard error of the mean. To our benefit, it was demonstrated by statisticians that as samples get large, their sampling distribution has a normal distribution, with a mean equal to the population mean. This is known as the **Central Limit Theorem**, and is useful in that given a large sample size, the standard error can be approximated by calculating the standard deviation of the sampling distribution.
+    - **Three principles of CLT**:
+      1. The mean of the sampling distribution is the same as the mean of the population.
+      2. The SD of the sampling distribution is the SQRT of the variance of the sampling distribution.
+      3. The shape of the sampling distribution is approximately normal if either a) N>=30 or b) the shape of the population distribution is normal.
+  - In case the sample size is small, the distribution is known as **t-distribution**.
+* Yet another approach to assess the accuracy of a sample mean as an estimate of the population mean is to calculate boundaries within which the population mean will be - these are called **confidence intervals**.
+  - Typically, 95% (and sometimes 99%) confidence intervals are used. A 95% confidence interval implies that for 95% of the samples collected, the population mean will fall within this boundary.
+  - These intervals can be calculated in the following manner: 
+    - As mentioned previously, the z-scores of 1.96 and others are important because these say that, for example, 95% of the z-scores fall within -1.96 and +1.96. With large samples, as per the Central Limit Theorem, the sampling distribution will be normally distributed.
+    - Given a normal distribution, lower boundary for CI: mean - (1.96 x SD)
+    - Given a normal distribution, upper boundary for CI: mean + (1.96 x SD)
+    - Given a t-distribution, lower boundary for CI: mean - (t_n-1 x SD)
+    - Given a t-distribution, upper boundary for CI: mean - (t_n-1 x SD)
+
+* *Yet* another way of assessing how well a mode fits our data is by using the **test statistic**.
+  - Test statistic = variance explained by model / variance not explained by model
+  - Once the test statistic is calculated, the probability of getting this value is then looked up.
+
+* Statistical Significance VS. Statistical Power
+  - All statistical techniques (except cluster analysis and perceptual mapping) are based on statistical inference of a population's values or relationships among variables from a randomy drawn sample of the population. Interpreting statistical inferences requires the researcher to specify the acceptable levels of statistical error that result from using a sample.
+  - Type I error: the probability of rejecting the null hypothesis when it is actually true (false positive).
+  - Type II error: the probability of NOT rejecting the null hypothesis when it is actually false.
+  - Statistical power influenced by: effect size, alpha level (type I error), sample size.
+
+* Weaknesses and their remedies for Null Hypothesis Significance Testing (NHST)
+  - Weakness: Biased by sample size
+    - In regression:
+      - 		p-value is based on t-value
+		  - t=B/SE (B is regression coefficient, SE is Standard Error)
+		  - SE=SQRT(SS.Residual/(N-2))
+  - Remedy: Supplement all NHSTs with estimates of effect size
+    - In regression:
+      - report standardised regression coefficients and the model R-squared.
+  - Weakness: Arbitrary decision rule (the cutoff value [alpha] is arbitrary)
+  - Remedy: supplement all NHSTs with estimates of effect size
+  - Weakness: Yokel Lokel Test - NHST ecnourages weak hypothesis testing
+  - Remedy: learn other forms of hypothesis testing,consider multiple alternative hypotheses
+  - Weakness: Error prone
+  - Remedy: replicate significant effects to avoid long-term impact of Type-I errors, obtain large and representative samples to avoid Type-II errors.
+  - Weakness: Logic becomes probabilistic in NHST
+    - Modus Tollens in NHST becomes probabilistic
+    - (IF p then q; NOT q; THEREFORE NOT p)
+    - (IF null-hypothesis correct, then these data are HIGHLY UNLIKELY; Data have OCCURREDl; THEREFORE, the null hypothesis is HIGHLY UNLIKELY)
+  - Remedy: Don't use NHST | remember p=P(D|H-null) | report confidence intervals only | Apply bayesian learning
+
+* Measures of effect size
+  - Many measures: Cohen's d, Pearson's correlation coefficient, odd's ratio, etc.
+  - Effect sizes provide a measure of the importance of an effect. These are calculated for samples, and the same could be used to estimate the effect size of the entire population.
+  - 
