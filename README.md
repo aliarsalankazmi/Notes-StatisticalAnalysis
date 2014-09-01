@@ -109,4 +109,26 @@ Notes pertaining to univariate/multivariate statistical analysis
     - sample size,
     - the probability level at which we will accept an effect as being statistically significant (a-level)
     - statistical power (the ability of a test to detect an effect of size
-    - 
+
+## Transforming Data
+
+* Data transformations are usually carried out for 2 reasons:
+  - To correct violations of statistical assumptions
+  - To improve relations between variables
+  - When a transformation is applied, it is said that the same must be applied to all data - not in the manner that to one variable, a log transformation is applied, whereas to others an Inverse.
+* To deal with outliers:
+  - Remove outliers
+  - Transform data
+  - Change data manually
+    - Highest score plus 1
+    - If outlier is a z-score, convert it back to original value
+    - Mean + 2 Standard Deviations
+* To achieve normality:
+  - If distribution is flat (negative kurtosis), use **Inverse**.
+  - If distribution is negatively skewed, use a **Square** or a **Cube**.
+  - If distribution is positively skewed, use a **Logarithm** or a **Square root**.
+* To achieve homoscedasticity:
+  - If the cone opens to the right, take **Inverse**.
+  - If the cone opens to the left, take a **Square root**.
+* To achieve linearity:
+  - Can use squares, cubes, square-roots, logs, inverse, etc.
