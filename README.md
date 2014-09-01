@@ -132,3 +132,5 @@ Notes pertaining to univariate/multivariate statistical analysis
   - If the cone opens to the left, take a **Square root**.
 * To achieve linearity:
   - Can use squares, cubes, square-roots, logs, inverse, etc.
+* However, transformations to data make its interpretation difficult, as the values are changed from original ones.
+* Also, transforming data means that the hypothesis being tested is changed (when using a log transformation and comparing the means, we change from comparing arithmetic means to comparing geometric means).
