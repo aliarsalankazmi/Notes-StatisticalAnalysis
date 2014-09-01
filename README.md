@@ -144,3 +144,15 @@ Notes pertaining to univariate/multivariate statistical analysis
   - Can use squares, cubes, square-roots, logs, inverse, etc.
 * However, transformations to data make its interpretation difficult, as the values are changed from original ones.
 * Also, transforming data means that the hypothesis being tested is changed (when using a log transformation and comparing the means, we change from comparing arithmetic means to comparing geometric means).
+
+* If no transformations work/are impossible to implement, then either of the following 2 methods may be invoked:
+  - Use trimmed values (e.g. trimmed mean)
+  - Bootstrapping (samples tend towards normality as they get larger - a very clever technique)
+
+## Correlation Analysis
+
+* The simplest way to check if two variables are associated is to check if they *covary*.
+* A cross-product of two variables' deviations, added for all variables and averaged (divided by total values - 1) is known as **covariance**.
+* However, a problem faced when calculating covariance is that it is affected by scales of measurement. Covariance, thus, cannot be an objective measure of association for two variables.
+* To obtain a standardised covariance (also known as correlation coefficient), the covariance is divided by the multiplied result of standard deviations for two variables - this gives us the covariance in standard deviation units.
+* This is also known as Pearson product-moment correlation coefficient.
