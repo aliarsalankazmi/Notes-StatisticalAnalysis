@@ -110,6 +110,16 @@ Notes pertaining to univariate/multivariate statistical analysis
     - the probability level at which we will accept an effect as being statistically significant (a-level)
     - statistical power (the ability of a test to detect an effect of size
 
+## Checking Statistical assumptions in data
+
+* To check if a distribution follows normality:
+  - Plot histograms (especially for large data sets)
+  - Plot QQ-Plots (when line sags below or rises above diagonal, it indicates kurtosis is different from normal distribution, while if the line has an S-shaped curve, it indicates positively or negatively skewed data)
+  - Use Shapiro-Wilk test (with large sample sizes, small deviations from normality can produce significant results)
+* To check for homogeneity/heterogeneity of data:
+  - Levene test (with large sample sizes, small deviations from normality can produce significant results)
+  - Hartley's F-max (or the Variance Ratio)
+
 ## Transforming Data
 
 * Data transformations are usually carried out for 2 reasons:
