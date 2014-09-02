@@ -170,6 +170,7 @@ Notes pertaining to univariate/multivariate statistical analysis
   - Converting the correlation coefficient to a Z-score and then this by the standard error (Z-score is computed because we know the probability of a given Z-score, as long as the distribution is normal. Since it isn't normal for a correlation coefficient, it is divided by the standard error)
   - Using a t-statistic, the formula for which is: (correlation coefficient*sqrt(N - 2)/sqrt(1 - correlation coefficient ^2))
 * Alternatively, we may compute the confidence intervals for a correlation coefficient (after converting the correlation coefficients to Z-scores and computing the standard error. The standard error of the mean is just dividing the Standard Deviation by the sqrt(N) where N = total number of values).
+* Another possible method is to use **bootstrapping** to repetitively draw samples from a sampling distribution, and compute correlation over each of the drawn samples. This is very easy to do with R.
   - Once the values for the CI are calculated, we need to convert them back to Correlation coefficients.
 * There are **two** types of Correlations:
   - Bivariate:
@@ -193,8 +194,8 @@ Notes pertaining to univariate/multivariate statistical analysis
   - When data is not normal, the Spearman's Rho can be used, as it is non-parametric.
 * Kendall's Tau
   - This is useful if Spearman's Rho is to be calculated, but the data set is small with a lot of variables at the same rank.
-* For Continuous vs. Ordinal variables: use Biserial
-* For Continuous vs. Nominal variables: use Point-Biserial
+* For Continuous vs. Ordinal variables: Biserial correlation *(use `polyserial()` from `ploycor` package)*
+* For Continuous vs. Nominal variables: Point-Biserial correlation *(use simple correlation in R)*
 
 * For Ordinal vs. Nominal variables: use Rank Biserial
 * For Nominal vs. Nominal variables: use Phi Coefficient, Chi-Squared Statistic, Contingency Coefficient, or Cramer's V
@@ -202,4 +203,14 @@ Notes pertaining to univariate/multivariate statistical analysis
   - Phi used for variables when each has exactly 2 possible outcomes; adjusts sample size. Phi = sqrt(chi-squared/n)
   - Contingency Coefficient used when each variable has 3 or more possible outcomes. C = sqrt(phi^2/1+phi^2)
   - Cramer's V used when variables have unequal number of possible outcomes. V = (phi^2/t) OR V = sqrt(chi-squared^2/nt) where t = min(nrow-1,ncol-1)
+
+* For partial correlations:
+  - use the `ggm` package's `pcor()` function
+
+* For **comparing correlation coefficients**:
+  - Independent correlation coefficients, convert to Z-scores (to make the distribution normal and calculate the standard error), and calculate the difference of these Z-scores
+  - For dependent correlation coefficients, use the t-statistic
+
+* For calculating the **effect size**:
+  - Correlation coefficients for Pearson's and Spearman's are the effect sizes. However, the effect size of Kendall's Tau and Pearon's and Spearman's are not comparable, as Kendall's Tau is always smaller than Spearman's (and Pearson's).
 
