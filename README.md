@@ -214,3 +214,28 @@ Notes pertaining to univariate/multivariate statistical analysis
 * For calculating the **effect size**:
   - Correlation coefficients for Pearson's and Spearman's are the effect sizes. However, the effect size of Kendall's Tau and Pearon's and Spearman's are not comparable, as Kendall's Tau is always smaller than Spearman's (and Pearson's).
 
+* It is worth bearing in mind that **outliers** do impact correlation coefficients. Especially in small samples, outliers can greatly affect correlation strengths.
+
+### Association between categorical data
+
+* Categorical data is usually measured by frequencies.
+* Frequency data for categorical variables can be cross-tabulated to produce a **contingency table**.
+* On such a table, the **chi-squared test** can be performed - this statistic compares the frequencies observed with those that can be expected.
+  - The standard equation used to evaluate a model is: Deviation = sum of (observed - model)^2, where model is the expected frequencies that we calculate from the contingency table.
+  - This equation can also be used for categorical data, with slight modification of dividing by model scores. This produces standardised deviations.
+  - To calculate the *model* (or the *Expected frequencies*): (RowTotal * ColumnTotal)/  Total
+  - Chi-squared statistic = sum((ObservedValues - ExpectedFrequencies)^2 / ExpectedFrequencies)
+  - Once this is calculated, we find the degrees of freedom = (NumberOfRows - 1)(NumberOfColumns - 1)
+  - Chi-squared test assumes independence of data (each item/entity contributes to only one cell of the contingency table), and frequency values in contingency tables must be > 5.
+  - One problem is that the sampling distribution of the chi-squared test statistic has an *approximate* chi-squared distribution. Due to this, the expected cell frequencies in each cell must be > 5.
+  - In case we have small samples, **Fisher's Exact Test** could be used to compute exact probability of the chi-squared test statistic.
+
+* Another method to measure association is **likelihood ratio statistic**.
+  - The rationale behind this method is to first create a model for which the probability of obtaining the observed set of data is maximised. Then, this model is compared to the probability of obtaining the observed data under the Null hypothesis.
+  - This statistic also has a chi-squared distribution.
+  - This statistic is also useful in small samples, but can be used with large samples too.
+
+* To calculate the **effect size** for categorical variables, the **odds ratio** is used.
+  - Odds ratio for a given b = prob(a|b)/prob(a|not b)
+
+* These measures do **not** show the *direction* of relationship between variables.
