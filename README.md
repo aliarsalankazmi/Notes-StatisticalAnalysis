@@ -112,13 +112,18 @@ Notes pertaining to univariate/multivariate statistical analysis
 
 ## Checking Statistical assumptions in data
 
-* To check if a distribution follows normality:
+* To check if a distribution follows **normality**:
   - Plot histograms (especially for large data sets)
   - Plot QQ-Plots (when line sags below or rises above diagonal, it indicates kurtosis is different from normal distribution, while if the line has an S-shaped curve, it indicates positively or negatively skewed data)
   - Use Shapiro-Wilk test (with large sample sizes, small deviations from normality can produce significant results)
-* To check for homogeneity/heterogeneity of data:
+  - Use Komogorove-Smirnov test for Kurtosis 
+* To check for **homogeneity/heterogeneity** of data:
   - Levene test (with large sample sizes, small deviations from normality can produce significant results)
   - Hartley's F-max (or the Variance Ratio)
+  - Box's M-test (tests for homogeneity of variance OR the equality of covariance)
+* To check for **linearity**:
+  - Examine residuals, as any non-linear portions of relationships will be shown
+  - Correlated errors *must* be treated!
 
 ## Transforming Data
 
@@ -149,10 +154,52 @@ Notes pertaining to univariate/multivariate statistical analysis
   - Use trimmed values (e.g. trimmed mean)
   - Bootstrapping (samples tend towards normality as they get larger - a very clever technique)
 
-## Correlation Analysis
+## Measures of Association
+
+* Different ways to measure association between variables.
+* Some ways allow identification of directions for relationships (for example, correlation). Others do not show this direction (chi-squared statistic, Cramer's V, etc.).
+
+### Correlation Analysis
 
 * The simplest way to check if two variables are associated is to check if they *covary*.
 * A cross-product of two variables' deviations, added for all variables and averaged (divided by total values - 1) is known as **covariance**.
 * However, a problem faced when calculating covariance is that it is affected by scales of measurement. Covariance, thus, cannot be an objective measure of association for two variables.
 * To obtain a standardised covariance (also known as correlation coefficient), the covariance is divided by the multiplied result of standard deviations for two variables - this gives us the covariance in standard deviation units.
 * This is also known as Pearson product-moment correlation coefficient.
+* We may perform a **Null Hypothesis test** for the correlation coefficient (thinking whether the observed correlation coefficient is likely or unlikely to occur if there is no effect in the population) in two ways:
+  - Converting the correlation coefficient to a Z-score and then this by the standard error (Z-score is computed because we know the probability of a given Z-score, as long as the distribution is normal. Since it isn't normal for a correlation coefficient, it is divided by the standard error)
+  - Using a t-statistic, the formula for which is: (correlation coefficient*sqrt(N - 2)/sqrt(1 - correlation coefficient ^2))
+* Alternatively, we may compute the confidence intervals for a correlation coefficient (after converting the correlation coefficients to Z-scores and computing the standard error. The standard error of the mean is just dividing the Standard Deviation by the sqrt(N) where N = total number of values).
+  - Once the values for the CI are calculated, we need to convert them back to Correlation coefficients.
+* There are **two** types of Correlations:
+  - Bivariate:
+    - Pearson's Correlation Coefficient
+    - Spearman's Rho
+    - Kendall's Tau
+  - Partial
+
+* Pearson's Correlation Coefficient
+  - Assumptions:
+    - Variables are of interval type (continuous vs. continuous)
+    - For checking statistical significance, data are distributed normally.
+    - Linearity and constant variance
+  - This correlation is for linear relationships.
+  - Squaring the correlation coefficient (known as the Correlation of Determination, R^2) is a measure of the amount of variability in one variable shared by the other.
+* Spearman's Rho
+  - Assumptions:
+    - Variables are ordinal, ratio, or interval (ordinal vs. ordinal)
+    - Variables are ranked
+  - This correlation is for monotonic relationships
+  - When data is not normal, the Spearman's Rho can be used, as it is non-parametric.
+* Kendall's Tau
+  - This is useful if Spearman's Rho is to be calculated, but the data set is small with a lot of variables at the same rank.
+* For Continuous vs. Ordinal variables: use Biserial
+* For Continuous vs. Nominal variables: use Point-Biserial
+
+* For Ordinal vs. Nominal variables: use Rank Biserial
+* For Nominal vs. Nominal variables: use Phi Coefficient, Chi-Squared Statistic, Contingency Coefficient, or Cramer's V
+  - These do not show the direction of relationships
+  - Phi used for variables when each has exactly 2 possible outcomes; adjusts sample size. Phi = sqrt(chi-squared/n)
+  - Contingency Coefficient used when each variable has 3 or more possible outcomes. C = sqrt(phi^2/1+phi^2)
+  - Cramer's V used when variables have unequal number of possible outcomes. V = (phi^2/t) OR V = sqrt(chi-squared^2/nt) where t = min(nrow-1,ncol-1)
+
