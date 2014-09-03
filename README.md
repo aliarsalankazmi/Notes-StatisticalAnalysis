@@ -215,6 +215,9 @@ Notes pertaining to univariate/multivariate statistical analysis
   - Correlation coefficients for Pearson's and Spearman's are the effect sizes. However, the effect size of Kendall's Tau and Pearon's and Spearman's are not comparable, as Kendall's Tau is always smaller than Spearman's (and Pearson's).
 
 * It is worth bearing in mind that **outliers** do impact correlation coefficients. Especially in small samples, outliers can greatly affect correlation strengths.
+* Correlation coefficients can be converted to **distance/dissimilarity** measure in the following manner:
+  - dissimilarity measure = (1 - correlationCoefficient)/2
+* A dissimilarity measure can be converted to a **similarity measure** by: 1 - dissimilarityMeasure
 
 ### Association between categorical data
 
@@ -232,11 +235,12 @@ Notes pertaining to univariate/multivariate statistical analysis
 
 * Another method to measure association is **likelihood ratio statistic**.
   - The rationale behind this method is to first create a model for which the probability of obtaining the observed set of data is maximised. Then, this model is compared to the probability of obtaining the observed data under the Null hypothesis.
-  - The formula for likelihood ratio is: 2 x sum(observedValue_ij x ln(observedValue_ij/expectedValue_ij))
+  - The formula for likelihood ratio is: 2 x sum(observedValue x ln(observedValue/expectedValue))
   - This statistic also has a chi-squared distribution.
   - This statistic is also useful in small samples, but can be used with large samples too.
-
 * To calculate the **effect size** for categorical variables, the **odds ratio** is used.
   - Odds ratio for a given b = prob(a|b)/prob(a|not b)
 
 * These measures do **not** show the *direction* of relationship between variables.
+
+* When a large number of variables are involded, the **log-linear** analysis for categorical data can be performed.
