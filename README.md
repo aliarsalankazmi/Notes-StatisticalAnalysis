@@ -232,6 +232,7 @@ Notes pertaining to univariate/multivariate statistical analysis
 
 * Another method to measure association is **likelihood ratio statistic**.
   - The rationale behind this method is to first create a model for which the probability of obtaining the observed set of data is maximised. Then, this model is compared to the probability of obtaining the observed data under the Null hypothesis.
+  - The formula for likelihood ratio is: 2 x sum(observedValue_ij x ln(observedValue_ij/expectedValue_ij))
   - This statistic also has a chi-squared distribution.
   - This statistic is also useful in small samples, but can be used with large samples too.
 
