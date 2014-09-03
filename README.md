@@ -229,7 +229,7 @@ Notes pertaining to univariate/multivariate statistical analysis
   - To calculate the *model* (or the *Expected frequencies*): (RowTotal * ColumnTotal)/  Total
   - Chi-squared statistic = sum((ObservedValues - ExpectedFrequencies)^2 / ExpectedFrequencies)
   - Once this is calculated, we find the degrees of freedom = (NumberOfRows - 1)(NumberOfColumns - 1)
-  - Chi-squared test assumes independence of data (each item/entity contributes to only one cell of the contingency table), and frequency values in contingency tables must be > 5.
+  - Chi-squared test assumes independence of data (each item/entity contributes to only one cell of the contingency table), and that expected frequency values in contingency tables must be > 5.
   - One problem is that the sampling distribution of the chi-squared test statistic has an *approximate* chi-squared distribution. Due to this, the expected cell frequencies in each cell must be > 5.
   - In case we have small samples, **Fisher's Exact Test** could be used to compute exact probability of the chi-squared test statistic.
 
